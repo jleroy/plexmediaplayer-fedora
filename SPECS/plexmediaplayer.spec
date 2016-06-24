@@ -29,6 +29,7 @@ BuildRequires:  libdrm-devel
 BuildRequires:  mesa-libGL-devel
 BuildRequires:  SDL2-devel
 BuildRequires:  libcec-devel
+BuildRequires:  libappstream-glib
 BuildRequires:  qt5-qtbase-devel >= 5.6
 BuildRequires:  qt5-qtdeclarative-devel >= 5.6
 BuildRequires:  qt5-qtwebchannel-devel >= 5.6
@@ -41,7 +42,6 @@ Requires:       mesa-libGL
 Requires:       SDL2
 Requires:       libcec
 Requires:       opencv-core
-Requires:       appstream-util
 Requires:       qt5-qtbase >= 5.6
 Requires:       qt5-qtbase-gui >= 5.6
 Requires:       qt5-qtdeclarative >= 5.6
