@@ -30,6 +30,7 @@ BuildRequires:  mesa-libGL-devel
 BuildRequires:  SDL2-devel
 BuildRequires:  libcec-devel
 BuildRequires:  libappstream-glib
+BuildRequires:  desktop-file-utils
 BuildRequires:  qt5-qtbase-devel >= 5.6
 BuildRequires:  qt5-qtdeclarative-devel >= 5.6
 BuildRequires:  qt5-qtwebchannel-devel >= 5.6
