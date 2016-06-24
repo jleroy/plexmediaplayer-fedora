@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Plex Media Player
+Exec=/usr/bin/env LC_NUMERIC=C /usr/bin/plexmediaplayer
+Icon=plexmediaplayer
+Terminal=false
+Type=Application
+Categories=AudioVideo;
+StartupNotify=true
+

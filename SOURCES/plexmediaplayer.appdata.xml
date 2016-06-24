@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- © 2016 Jonathan Leroy <jonathan@harrycow.fr> -->
+<component type="desktop">
+  <id>plexmediaplayer.desktop</id>
+  <metadata_license>CC-BY-SA-3.0</metadata_license>
+  <project_license>GPL-2.0</project_license>
+  <name>Plex Media Player</name>
+  <name xml:lang="fr">Plex Media Player</name>
+  <summary>Official desktop client for Plex Media Server</summary>
+  <summary xml:lang="fr">Le client Plex Media Server officiel sur ordinateur</summary>
+  <description>
+    <p>The best Plex Media Server client for your computer, by Plex Inc. For the ultimate experience, install Plex Media Player on a dedicated computer for your TV. It's optimized for the big screen and supports a wide variety of formats with high-definition audio, native framerates, and more.</p>
+    <p xml:lang="fr">Le meilleur client Plex Media Server pour votre ordinateur, par Plex Inc. Pour une expérience optimale, il est conseillé d'installer Plex Media Player sur ordinateur dédié relié à votre télévision. L'interface est optimisée pour les grands écrans et supporte une large variété de formats avec audio haute-définition, framerate natif, et bien plus encore.</p>
+  </description>
+  <screenshots>
+    <screenshot type="default">
+      <image>http://i.imgur.com/0QuZ2kd.png</image>
+      <caption>Last added and recently palyed movies</caption>
+      <caption xml:lang="fr">Vidéos en cours et récemment ajoutées</caption>
+    </screenshot>
+    <screenshot>
+      <image>http://i.imgur.com/YAx4IaH.png</image>
+      <caption>Seasons list</caption>
+      <caption xml:lang="fr">Liste des saisons</caption>
+    </screenshot>
+    <screenshot>
+      <image>http://i.imgur.com/R55AYmd.png</image>
+      <caption>Episodes list</caption>
+      <caption xml:lang="fr">Liste des épisodes</caption>
+    </screenshot>
+    <screenshot>
+      <image>http://i.imgur.com/Mj5YdWg.png</image>
+      <caption>Episode details</caption>
+      <caption xml:lang="fr">Détail de l'épisode</caption>
+    </screenshot>
+    <screenshot>
+      <image>http://i.imgur.com/FooChTn.png</image>
+      <caption>Playing a movie</caption>
+      <caption xml:lang="fr">Lecture d'une vidéo</caption>
+    </screenshot>
+  </screenshots>
+  <url type="homepage">https://plex.tv</url>
+  <updatecontact>jonathan@harrycow.fr</updatecontact>
+  <developer_name>Plex, Inc.</developer_name>
+  <url type="bugtracker">https://forums.plex.tv/discussion/200993/plex-media-player-and-qt-5-6-rpm-for-fedora-23-x86-64-alpha/p1</url>
+  <url type="donation">https://plex.tv/subscription/about</url>
+  <url type="help">https://forums.plex.tv/discussion/200993/plex-media-player-and-qt-5-6-rpm-for-fedora-23-x86-64-alpha/p1</url>
+</component>

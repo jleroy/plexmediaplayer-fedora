@@ -1,0 +1,65 @@
+#!/bin/bash
+
+main() {
+   # Checking for root privileges.
+   if [[ "${EUID}" != "0" ]]
+   then
+      echo "This script must be run as root user."
+      echo "Please use the following command to run this script with the required privileges:"
+      echo ""
+      echo " sudo ${0}"
+      echo ""
+
+      exit 1
+   fi
+
+   # A little warning.
+   echo "WARNING: This script will configure your system to launch Plex Media"
+   echo "Player on startup instead of your current window manager."
+   echo ""
+   read -p "Are you sure you want to do this? [y/N] " -n 1 -r
+   echo ""
+   if ! [[ "${REPLY}" =~ ^[Yy]$ ]]
+   then
+      exit 1
+   fi
+
+   # Check if Xwrapper.config exists.
+   local x11edit=0
+   if [ ! -f /etc/X11/Xwrapper.config ]
+   then
+      echo 'allowed_users = anybody' > /etc/X11/Xwrapper.config
+   else
+      x11edit=1
+   fi 
+
+   # Disable current window manager.
+   /usr/bin/rm -f /etc/systemd/system/default.target
+
+   # Set PMP as default window manager.
+   /usr/bin/ln -s /usr/lib/systemd/system/plexmediaplayer.target /etc/systemd/system/default.target 
+
+   # Allow Plex Media Player to shutdown device.
+   /usr/bin/cp -f /etc/polkit-1/localauthority/50-local.d/plexmediaplayer.pkla.disabled /etc/polkit-1/localauthority/50-local.d/plexmediaplayer.pkla
+
+   # Loading SELinux policy.
+   if [[ -x /usr/sbin/semodule ]]
+   then
+      /usr/sbin/semodule -i /usr/share/plexmediaplayer/selinux/plexmediaplayer.pp
+   fi
+
+   echo "Done!"
+
+   if [[ "${x11edit}" != "0" ]]
+   then
+       echo ""
+       echo "WARNING: File /etc/X11/Xwrapper.config already exists."
+       echo "You MUST add \"allowed_users = anybody\" to it if not already present."
+   fi
+   
+   echo ""
+   echo "Reboot your device to enjoy standalone Plex Media Player!"
+   echo ""
+}
+
+main

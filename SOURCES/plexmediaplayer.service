@@ -1,0 +1,15 @@
+[Unit]
+Description = Plex Media Player (Standalone)
+After = network-online.target remote-fs.target systemd-user-sessions.service
+
+[Service]
+User = plexmediaplayer
+Group = plexmediaplayer
+PAMName = login
+Type = simple
+Environment = "LC_NUMERIC=C"
+ExecStart = /usr/bin/plexmediaplayer-standalone
+Restart = on-abort
+ 
+[Install]
+WantedBy = multi-user.target

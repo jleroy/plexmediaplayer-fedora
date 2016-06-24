@@ -1,0 +1,14 @@
+
+module plexmediaplayer 1.0;
+
+require {
+	type init_t;
+	type unconfined_t;
+	class process transition;
+}
+
+#============= init_t ==============
+
+#!!!! The file '/usr/bin/plexmediaplayer-standalone' is mislabeled on your system.  
+#!!!! Fix with $ restorecon -R -v /usr/bin/plexmediaplayer-standalone
+allow init_t unconfined_t:process transition;

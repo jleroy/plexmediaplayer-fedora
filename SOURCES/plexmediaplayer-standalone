@@ -1,0 +1,13 @@
+#!/bin/bash
+
+main() {
+    /usr/bin/xinit /usr/bin/dbus-launch /usr/bin/plexmediaplayer --standalone -- -nocursor :0 -nolisten tcp
+
+    local excode=$?
+    if [[ "${excode}" == "0" ]]
+    then
+        /usr/sbin/poweroff
+    fi
+}
+
+main

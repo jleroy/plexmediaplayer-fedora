@@ -1,0 +1,4 @@
+[Actions for Plex Media Player]
+Identity=unix-user:plexmediaplayer
+Action=org.freedesktop.login1.power-off
+ResultAny=yes
