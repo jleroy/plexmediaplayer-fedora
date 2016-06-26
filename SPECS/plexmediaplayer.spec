@@ -1,6 +1,6 @@
 Name:           plexmediaplayer
 Version:        1.1.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Plex Media Player for Fedora 23+
 
 License:        GPLv2
@@ -148,6 +148,9 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Mon Jun 27 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.1.2-2
+- Remove workaround for issue #244.
+
 * Sun Jun 19 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.1.2-1
 - There was an issue where the web-client and the playback engine could get out of state and cause screensaver to show up during movies or not let you press play/pause. This is now fixed
 - Non US locales could create problems with playback on Linux
