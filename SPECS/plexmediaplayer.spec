@@ -1,7 +1,7 @@
 Name:           plexmediaplayer
 Version:        1.1.2
 Release:        1%{?dist}
-Summary:        Plex Media Player for Fedora 23 and openSUSE Tumbleweed.
+Summary:        Plex Media Player for Fedora 23+
 
 License:        GPLv2
 URL:            https://plex.tv/
