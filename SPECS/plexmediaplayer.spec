@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        1.1.2
-Release:        2%{?dist}
+Version:        1.1.3
+Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 23+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v1.1.2.359-2b757d45.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v1.1.3.380-a2959899.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 # https://raw.githubusercontent.com/plexinc/plex-media-player/master/resources/images/icon.png
 Source2:        %{name}.png
@@ -42,6 +42,7 @@ Requires:       libdrm
 Requires:       mesa-libGL
 Requires:       SDL2
 Requires:       libcec
+Requires:       minizip
 Requires:       opencv-core
 Requires:       qt5-qtbase >= 5.6
 Requires:       qt5-qtbase-gui >= 5.6
@@ -57,7 +58,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-1.1.2.359-2b757d45 -q
+%setup -n plex-media-player-1.1.3.380-a2959899 -q
 
 %build
 rm -Rf build
@@ -148,6 +149,12 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Mon Aug 03 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.1.3-1
+- Qt bumped to version 5.7.0
+- Change how web-client is bundled
+- Missing Minizip dependency
+- Remove invalid "--standalone" parameter in plexmediaplayer-standalone script
+
 * Mon Jun 27 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.1.2-2
 - Remove workaround for issue #244.
 
