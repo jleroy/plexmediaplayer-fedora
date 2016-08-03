@@ -149,7 +149,7 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
-* Mon Aug 03 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.1.3-1
+* Wed Aug 03 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.1.3-1
 - Qt bumped to version 5.7.0
 - Change how web-client is bundled
 - Missing Minizip dependency
