@@ -1,6 +1,6 @@
 Name:           plexmediaplayer
 Version:        1.1.3
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Plex Media Player for Fedora 23+
 
 License:        GPLv2
@@ -152,9 +152,13 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Thu Aug 04 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.1.3-3
+- Pass parameters to xinit instead of using a ~/.xinitrc file
+- Remove dbus-launch from plexmediaplayer-standalone script
+
 * Thu Aug 04 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.1.3-2
-- Missing web client files.
-- X server no longer power off screen on standalone mode.
+- Missing web client files
+- X server no longer power off screen on standalone mode
 
 * Wed Aug 03 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.1.3-1
 - Qt bumped to version 5.7.0
