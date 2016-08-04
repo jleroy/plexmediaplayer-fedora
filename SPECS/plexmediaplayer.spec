@@ -83,6 +83,8 @@ appstream-util validate-relax --nonet %{_sourcedir}/%{name}.appdata.xml
 
 %{__mkdir_p} %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_datadir}/%{name}
 %{__install} -m0755 %{_sourcedir}/%{name}-standalone-enable               %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_datadir}/%{name}/%{name}-standalone-enable
+# Avoid using "ninja-build install" wich does not work without changing CMAKE_INSTALL_PREFIX.
+%{__cp} -r %{_builddir}/%{buildsubdir}/build/src/web-client-*             %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_datadir}/%{name}/
 
 %{__mkdir_p} %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_datadir}/%{name}/selinux
 %{__install} -m0644 %{_sourcedir}/%{name}.te                              %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_datadir}/%{name}/selinux/%{name}.te
@@ -111,6 +113,7 @@ desktop-file-install --dir=%{_buildrootdir}/%{name}-%{version}-%{release}.%{_arc
 /usr/share/plexmediaplayer/plexmediaplayer-standalone-enable
 /usr/share/plexmediaplayer/selinux/plexmediaplayer.te
 /usr/share/plexmediaplayer/selinux/plexmediaplayer.pp
+/usr/share/plexmediaplayer/web-client-*
 /etc/polkit-1/localauthority/50-local.d/plexmediaplayer.pkla.disabled
 
 
