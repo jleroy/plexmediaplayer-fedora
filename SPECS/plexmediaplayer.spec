@@ -1,6 +1,6 @@
 Name:           plexmediaplayer
 Version:        1.1.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Plex Media Player for Fedora 23+
 
 License:        GPLv2
@@ -18,6 +18,7 @@ Source7:	    %{name}-standalone
 Source8:        %{name}.te
 Source9:        %{name}.pp
 Source10:       %{name}-standalone-enable
+Source11:       %{name}.xinitrc
 
 BuildRequires:	cmake
 BuildRequires:  ninja-build
@@ -90,6 +91,9 @@ appstream-util validate-relax --nonet %{_sourcedir}/%{name}.appdata.xml
 %{__install} -m0644 %{_sourcedir}/%{name}.te                              %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_datadir}/%{name}/selinux/%{name}.te
 %{__install} -m0644 %{_sourcedir}/%{name}.pp                              %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_datadir}/%{name}/selinux/%{name}.pp
 
+%{__mkdir_p} %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_sharedstatedir}/%{name}
+%{__install} -m0644 %{_sourcedir}/%{name}.xinitrc                        %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_sharedstatedir}/%{name}/.xinitrc
+
 %{__mkdir_p} %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_prefix}/lib/systemd/system
 %{__install} -m0644 %{_sourcedir}/%{name}.service                         %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_prefix}/lib/systemd/system/%{name}.service
 %{__install} -m0644 %{_sourcedir}/%{name}.target                          %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_prefix}/lib/systemd/system/%{name}.target
@@ -114,6 +118,7 @@ desktop-file-install --dir=%{_buildrootdir}/%{name}-%{version}-%{release}.%{_arc
 /usr/share/plexmediaplayer/selinux/plexmediaplayer.te
 /usr/share/plexmediaplayer/selinux/plexmediaplayer.pp
 /usr/share/plexmediaplayer/web-client-*
+/var/lib/plexmediaplayer/.xinitrc
 /etc/polkit-1/localauthority/50-local.d/plexmediaplayer.pkla.disabled
 
 
@@ -152,6 +157,10 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Thu Aug 04 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.1.3-2
+- Missing web client files.
+- X server no longer power off screen on standalone mode.
+
 * Wed Aug 03 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.1.3-1
 - Qt bumped to version 5.7.0
 - Change how web-client is bundled
