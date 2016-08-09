@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        1.1.3
-Release:        3%{?dist}
+Version:        1.1.4
+Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 23+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v1.1.3.380-a2959899.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v1.1.4.393-12c41f9f.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 # https://raw.githubusercontent.com/plexinc/plex-media-player/master/resources/images/icon.png
 Source2:        %{name}.png
@@ -58,7 +58,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-1.1.3.380-a2959899 -q
+%setup -n plex-media-player-1.1.4.393-12c41f9f -q
 
 %build
 rm -Rf build
@@ -155,6 +155,12 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Tue Aug 09 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.1.4-1
+- Changing aspect ratio during playback could halt playback
+- Fix volume up with "+" on some keyboards
+- Playback sometimes did not end
+- Issues with msmpeg and wmv1 codecs on some platforms
+
 * Thu Aug 04 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.1.3-3
 - Pass parameters to xinit instead of using a ~/.xinitrc file
 - Remove dbus-launch from plexmediaplayer-standalone script
