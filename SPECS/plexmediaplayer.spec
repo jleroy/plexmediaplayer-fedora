@@ -23,8 +23,16 @@ BuildRequires:	cmake
 BuildRequires:  ninja-build
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
-BuildRequires:  (libmpv or mpv-libs)
-BuildRequires:  (libmpv-devel or mpv-libs-devel)
+%if 0%{?fedora} < 24
+BuildRequires:  libmpv
+%else
+BuildRequires:  mpv-libs
+%endif
+%if 0%{?fedora} < 24
+BuildRequires:  libmpv-devel
+%else
+BuildRequires:  mpv-libs-devel
+%endif
 BuildRequires:  libdrm-devel
 BuildRequires:  mesa-libGL-devel
 BuildRequires:  SDL2-devel
