@@ -23,8 +23,8 @@ BuildRequires:	cmake
 BuildRequires:  ninja-build
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
-BuildRequires:  libmpv
-BuildRequires:  libmpv-devel
+BuildRequires:  (libmpv or mpv-libs)
+BuildRequires:  (libmpv-devel or mpv-libs-devel)
 BuildRequires:  libdrm-devel
 BuildRequires:  mesa-libGL-devel
 BuildRequires:  SDL2-devel
@@ -37,7 +37,7 @@ BuildRequires:  qt5-qtwebchannel-devel >= 5.6
 BuildRequires:  qt5-qtwebengine-devel >= 5.6
 BuildRequires:  qt5-qtx11extras-devel >= 5.6
 
-Requires:       libmpv
+Requires:       (libmpv or mpv-libs)
 Requires:       libdrm
 Requires:       mesa-libGL
 Requires:       SDL2
