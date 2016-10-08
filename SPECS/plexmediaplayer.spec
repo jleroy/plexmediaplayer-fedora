@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        1.1.4
+Version:        1.1.6
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 23+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v1.1.4.393-12c41f9f.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v1.1.6.408-7375112a.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 # https://raw.githubusercontent.com/plexinc/plex-media-player/master/resources/images/icon.png
 Source2:        %{name}.png
@@ -58,13 +58,13 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-1.1.4.393-12c41f9f -q
+%setup -n plex-media-player-1.1.6.408-7375112a -q
 
 %build
 rm -Rf build
 mkdir build
 cd build
-cmake -GNinja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DQTROOT=/usr/lib64/qt5 -DMPV_INCLUDE_DIR=/usr/include/mpv -DMPV_LIBRARY=/usr/lib64/libmpv.so.1 -DCMAKE_INSTALL_PREFIX=/usr ..
+cmake -GNinja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DQTROOT=/usr/lib64/qt5 -DMPV_INCLUDE_DIR=/usr/include/mpv -DMPV_LIBRARY=/usr/lib64/libmpv.so.1 -DLINUX_DBUS=ON -DCMAKE_INSTALL_PREFIX=/usr ..
 ninja-build
 
 %install
@@ -155,6 +155,19 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Sat Oct 08 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.1.6-1
+- Updated web-client to 2.10.0
+- Added always on top setting (thanks to Lukas Pitschl)
+- Enabled power options on Embedded x86 (thanks to Jonathan Leroy)
+- PMP now selects multi-channel audio over stereo if your system is configured for more channels than 2 in settings
+- Add audio_delay.25hz setting for tweaking audio delay for 25hz mode
+- Add new mode to force 16:9 aspect ratio for 4:3 video
+- Audio now does not always force upmixing, e.g. playing stereo even if 7.1 is configured. To enable this you need to go and reselect the number of channels in audio configuration
+- Fixed respawning helper process
+- Fixed a bug where going into fullscreen could end up in a bad loop
+- Subtitle selection for vobsubs should now work
+- Crash fixes
+
 * Tue Aug 09 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.1.4-1
 - Changing aspect ratio during playback could halt playback
 - Fix volume up with "+" on some keyboards
