@@ -1,6 +1,6 @@
 Name:           plexmediaplayer
-Version:        1.2.0
-Release:        2%{?dist}
+Version:        1.2.1
+Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 23+
 
 License:        GPLv2
@@ -74,7 +74,7 @@ pip install --user conan
 conan remote add plex https://conan.plex.tv
 
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-1.2.0.481-b45bbf24 -q
+%setup -n plex-media-player-1.2.1.494-7e6bbc6f -q
 %patch0 -p0
 %patch1 -p0
 
@@ -174,6 +174,20 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Tue Dec 20 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.2.1-1
+- Desktop web-client updated to 2.12.5
+- TV web-client updated to 2.10.8-9a2e1fb
+- Multimedia keys (play, next, prev) now work in desktop mode
+- Changes to mode switching. There is now a new setting called "layout" which can be set to "tv" or "auto". Auto will behave as 1.2.0 and switch to TV mode when in fullscreen. Set this to TV to "lock" the tv layout and not automatically switch to desktop mode. This can also be set by adding --tv to the command line
+- Added new command line switch to control the scale factor of the UI --scale-factor=X
+- New subtitle color added
+- Automatic subtitle encoding detection
+- Prevent screensaver during video/photo playback
+- Respect video quality setting
+- Support for HiDPI mode
+- Various playback related fixes
+- libCEC 4 support, thanks to LongChair (https://github.com/LongChair)
+
 * Tue Dec 20 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.2.0-2
 - Add missing qt5-qtquickcontrols dependencie
 - Add QT_SCALE_FACTOR environment variable in plexmediaplayer-standalone script
