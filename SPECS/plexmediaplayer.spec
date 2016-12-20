@@ -66,7 +66,7 @@ conan remote add plex https://conan.plex.tv
 
 #%setup -n %{name}-%{version} -q
 %setup -n plex-media-player-1.2.1.494-7e6bbc6f -q
-%patch0 -p0
+%patch0 -p1
 
 %build
 rm -Rf build
