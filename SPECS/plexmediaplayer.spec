@@ -23,6 +23,7 @@ BuildRequires:	cmake
 BuildRequires:  ninja-build
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
+Patch0:         %{name}-qtwebengine-f24.patch
 %if 0%{?fedora} < 24
 BuildRequires:  libmpv
 %else
@@ -67,6 +68,7 @@ Plex Media Player - Client for Plex Media Server.
 %prep
 #%setup -n %{name}-%{version} -q
 %setup -n plex-media-player-1.2.0.481-b45bbf24 -q
+%patch0 -p0
 
 %build
 rm -Rf build
