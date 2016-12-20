@@ -1,6 +1,6 @@
 Name:           plexmediaplayer
 Version:        1.2.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Plex Media Player for Fedora 23+
 
 License:        GPLv2
