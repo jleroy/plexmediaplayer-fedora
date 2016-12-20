@@ -61,6 +61,7 @@ Requires:       qt5-qtdeclarative >= 5.6
 Requires:       qt5-qtwebchannel >= 5.6
 Requires:       qt5-qtwebengine >= 5.6
 Requires:       qt5-qtx11extras >= 5.6
+Requires:       qt5-qtquickcontrols >= 5.6
 # User creation.
 Requires(pre):  shadow-utils
 
