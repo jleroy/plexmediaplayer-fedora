@@ -1,6 +1,7 @@
 #!/bin/bash
 
 main() {
+    #export QT_SCALE_FACTOR=1.5
     /usr/bin/xinit /usr/bin/plexmediaplayer -- -nocursor :0 -nolisten tcp -s off
 
     local excode=$?
