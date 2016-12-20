@@ -1,0 +1,12 @@
+--- conanfile.py.origin	2016-12-20 19:11:57.116795387 +0100
++++ conanfile.py	2016-12-20 19:12:25.456922616 +0100
+@@ -8,7 +8,7 @@
+   generators = "cmake"
+ 
+   def requirements(self):
+-    self.requires("web-client-tv/2.10.8-7de1963@plex/stable")
++    self.requires("web-client-tv/2.10.8-7de1963@plex/public")
+ 
+     if self.options.include_desktop:
+-      self.requires("web-client-desktop/2.11.1-b900a6e@plex/stable")
++      self.requires("web-client-desktop/2.11.1-b900a6e@plex/public")

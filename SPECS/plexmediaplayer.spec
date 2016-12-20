@@ -24,6 +24,7 @@ BuildRequires:  ninja-build
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
 Patch0:         %{name}-qtwebengine-f24.patch
+Patch1:         %{name}-conan.patch
 %if 0%{?fedora} < 24
 BuildRequires:  libmpv
 %else
@@ -66,14 +67,20 @@ Requires(pre):	shadow-utils
 Plex Media Player - Client for Plex Media Server.
 
 %prep
+# Dirty hack to make conan work in Copr.
+pip install --user conan
+conan remote add plex https://conan.plex.tv
+
 #%setup -n %{name}-%{version} -q
 %setup -n plex-media-player-1.2.0.481-b45bbf24 -q
 %patch0 -p0
+%patch1 -p0
 
 %build
 rm -Rf build
 mkdir build
 cd build
+conan install ..
 cmake -GNinja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DQTROOT=/usr/lib64/qt5 -DMPV_INCLUDE_DIR=/usr/include/mpv -DMPV_LIBRARY=/usr/lib64/libmpv.so.1 -DLINUX_DBUS=ON -DCMAKE_INSTALL_PREFIX=/usr ..
 ninja-build
 
@@ -126,7 +133,7 @@ desktop-file-install --dir=%{_buildrootdir}/%{name}-%{version}-%{release}.%{_arc
 /usr/share/plexmediaplayer/plexmediaplayer-standalone-enable
 /usr/share/plexmediaplayer/selinux/plexmediaplayer.te
 /usr/share/plexmediaplayer/selinux/plexmediaplayer.pp
-/usr/share/plexmediaplayer/web-client-*
+/usr/share/plexmediaplayer/web-client/*
 /etc/polkit-1/localauthority/50-local.d/plexmediaplayer.pkla.disabled
 
 
