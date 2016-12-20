@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        1.1.6
+Version:        1.2.0
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 23+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v1.1.6.408-7375112a.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v1.2.0.481-b45bbf24.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 # https://raw.githubusercontent.com/plexinc/plex-media-player/master/resources/images/icon.png
 Source2:        %{name}.png
@@ -66,7 +66,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-1.1.6.408-7375112a -q
+%setup -n plex-media-player-1.2.0.481-b45bbf24 -q
 
 %build
 rm -Rf build
@@ -163,6 +163,25 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Tue Dec 20 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.2.0-2
+- Add missing qt5-qtquickcontrols dependencie
+- Add QT_SCALE_FACTOR environment variable in plexmediaplayer-standalone script
+
+* Tue Dec 20 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.2.0-1
+- Add a desktop UI mode
+- Fix enabling audio passthrough on new installations
+- Fix music playback failures in some corner cases
+
+* Sun Dec 18 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.1.7-1
+- Removed the "Advanced" checkbox in the audio settings. PMP now behaves the same as if "Advanced" was always enabled in previous versions
+- Added a new "copy-back" hardware decoding setting. Useful only in specific situations
+- Fix screensaver behavior. In particular, the screensaver should now also start before any videos were played
+- Subtitle selection for vobsubs with multiple stream should now finally work
+- Fix rate display mode auto switching with imprecise media FPS values values like 24.999 (and the same for imprecise display refresh rates)
+- Fix subtitle/audio stream selection failure under certain circumstances. Requires at least server version 1.2.1
+- Fixed remote control compatibility with latest version of Plex for iOS
+- Progress when playing back mp3's didn't always update
+
 * Sat Oct 08 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.1.6-1
 - Updated web-client to 2.10.0
 - Added always on top setting (thanks to Lukas Pitschl)
