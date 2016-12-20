@@ -32,11 +32,11 @@ BuildRequires:  SDL2-devel
 BuildRequires:  libcec-devel
 BuildRequires:  libappstream-glib
 BuildRequires:  desktop-file-utils
-BuildRequires:  qt5-qtbase-devel >= 5.6
-BuildRequires:  qt5-qtdeclarative-devel >= 5.6
-BuildRequires:  qt5-qtwebchannel-devel >= 5.6
-BuildRequires:  qt5-qtwebengine-devel >= 5.6
-BuildRequires:  qt5-qtx11extras-devel >= 5.6
+BuildRequires:  qt5-qtbase-devel >= 5.7
+BuildRequires:  qt5-qtdeclarative-devel >= 5.7
+BuildRequires:  qt5-qtwebchannel-devel >= 5.7
+BuildRequires:  qt5-qtwebengine-devel >= 5.7
+BuildRequires:  qt5-qtx11extras-devel >= 5.7
 
 Requires:       (libmpv or mpv-libs)
 Requires:       libdrm
@@ -45,13 +45,13 @@ Requires:       SDL2
 Requires:       libcec
 Requires:       minizip
 Requires:       opencv-core
-Requires:       qt5-qtbase >= 5.6
-Requires:       qt5-qtbase-gui >= 5.6
-Requires:       qt5-qtdeclarative >= 5.6
-Requires:       qt5-qtwebchannel >= 5.6
-Requires:       qt5-qtwebengine >= 5.6
-Requires:       qt5-qtx11extras >= 5.6
-Requires:       qt5-qtquickcontrols >= 5.6
+Requires:       qt5-qtbase >= 5.7
+Requires:       qt5-qtbase-gui >= 5.7
+Requires:       qt5-qtdeclarative >= 5.7
+Requires:       qt5-qtwebchannel >= 5.7
+Requires:       qt5-qtwebengine >= 5.7
+Requires:       qt5-qtx11extras >= 5.7
+Requires:       qt5-qtquickcontrols >= 5.7
 # User creation.
 Requires(pre):  shadow-utils
 
