@@ -21,15 +21,15 @@ Source10:       %{name}-standalone-enable
 Patch0:         %{name}-qtwebengine-f24.patch
 Patch1:         %{name}-conan.patch
 
-buildrequires:  cmake
-buildrequires:  ninja-build
-buildrequires:  gcc
-buildrequires:  gcc-c++
-buildrequires:  python-pip
+BuildRequires:  cmake
+BuildRequires:  ninja-build
+BuildRequires:  gcc
+BuildRequires:  gcc-c++
+BuildRequires:  python-pip
 %if 0%{?fedora} < 24
-buildrequires:  libmpv
+BuildRequires:  libmpv
 %else
-buildrequires:  mpv-libs
+BuildRequires:  mpv-libs
 %endif
 %if 0%{?fedora} < 24
 BuildRequires:  libmpv-devel
