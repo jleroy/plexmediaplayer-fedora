@@ -11,24 +11,25 @@ Source1:        %{name}.desktop
 # https://raw.githubusercontent.com/plexinc/plex-media-player/master/resources/images/icon.png
 Source2:        %{name}.png
 Source3:        %{name}.appdata.xml
-Source4:	    %{name}.service
-Source5:	    %{name}.target
-Source6:	    %{name}.pkla.disabled
-Source7:	    %{name}-standalone
+Source4:        %{name}.service
+Source5:        %{name}.target
+Source6:        %{name}.pkla.disabled
+Source7:        %{name}-standalone
 Source8:        %{name}.te
 Source9:        %{name}.pp
 Source10:       %{name}-standalone-enable
-
-BuildRequires:	cmake
-BuildRequires:  ninja-build
-BuildRequires:  gcc
-BuildRequires:  gcc-c++
 Patch0:         %{name}-qtwebengine-f24.patch
 Patch1:         %{name}-conan.patch
+
+buildrequires:  cmake
+buildrequires:  ninja-build
+buildrequires:  gcc
+buildrequires:  gcc-c++
+buildrequires:  python-pip
 %if 0%{?fedora} < 24
-BuildRequires:  libmpv
+buildrequires:  libmpv
 %else
-BuildRequires:  mpv-libs
+buildrequires:  mpv-libs
 %endif
 %if 0%{?fedora} < 24
 BuildRequires:  libmpv-devel
@@ -61,7 +62,7 @@ Requires:       qt5-qtwebchannel >= 5.6
 Requires:       qt5-qtwebengine >= 5.6
 Requires:       qt5-qtx11extras >= 5.6
 # User creation.
-Requires(pre):	shadow-utils
+Requires(pre):  shadow-utils
 
 %description
 Plex Media Player - Client for Plex Media Server.
@@ -115,7 +116,7 @@ appstream-util validate-relax --nonet %{_sourcedir}/%{name}.appdata.xml
 %{__install} -m0644 %{_sourcedir}/%{name}.target                          %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_prefix}/lib/systemd/system/%{name}.target
 
 %{__mkdir_p} %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_sysconfdir}/polkit-1/localauthority/50-local.d
-%{__install} -m0644 %{_sourcedir}/%{name}.pkla.disabled	                  %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_sysconfdir}/polkit-1/localauthority/50-local.d/%{name}.pkla.disabled
+%{__install} -m0644 %{_sourcedir}/%{name}.pkla.disabled                   %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_sysconfdir}/polkit-1/localauthority/50-local.d/%{name}.pkla.disabled
 
 desktop-file-validate %{_sourcedir}/%{name}.desktop
 desktop-file-install --dir=%{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_datadir}/applications %{_sourcedir}/%{name}.desktop
