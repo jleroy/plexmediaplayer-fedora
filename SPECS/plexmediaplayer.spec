@@ -1,7 +1,7 @@
 Name:           plexmediaplayer
 Version:        1.2.1
 Release:        1%{?dist}
-Summary:        Plex Media Player for Fedora 23+
+Summary:        Plex Media Player for Fedora 25+
 
 License:        GPLv2
 URL:            https://plex.tv/
@@ -18,23 +18,14 @@ Source7:        %{name}-standalone
 Source8:        %{name}.te
 Source9:        %{name}.pp
 Source10:       %{name}-standalone-enable
-Patch0:         %{name}-qtwebengine-f24.patch
 
 BuildRequires:  cmake
 BuildRequires:  ninja-build
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
 BuildRequires:  python-pip
-%if 0%{?fedora} < 24
-BuildRequires:  libmpv
-%else
 BuildRequires:  mpv-libs
-%endif
-%if 0%{?fedora} < 24
-BuildRequires:  libmpv-devel
-%else
 BuildRequires:  mpv-libs-devel
-%endif
 BuildRequires:  libdrm-devel
 BuildRequires:  mesa-libGL-devel
 BuildRequires:  SDL2-devel
@@ -74,7 +65,6 @@ conan remote add plex https://conan.plex.tv
 
 #%setup -n %{name}-%{version} -q
 %setup -n plex-media-player-1.2.1.494-7e6bbc6f -q
-%patch0 -p0
 
 %build
 rm -Rf build
