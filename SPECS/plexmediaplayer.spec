@@ -1,6 +1,6 @@
 Name:           plexmediaplayer
 Version:        1.2.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Plex Media Player for Fedora 25+
 
 License:        GPLv2
@@ -166,6 +166,10 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Wed Dec 21 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.2.1-2
+- Remove unnecessary file
+- Fix standalone mode script
+
 * Tue Dec 20 2016 Jonathan Leroy <jonathan@harrycow.fr> - 1.2.1-1
 - Desktop web-client updated to 2.12.5
 - TV web-client updated to 2.10.8-9a2e1fb
