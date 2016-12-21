@@ -1,0 +1,10 @@
+--- src/CMakeLists.txt.origin	2016-12-21 02:37:46.778140999 +0100
++++ src/CMakeLists.txt	2016-12-21 02:38:00.435605033 +0100
+@@ -135,7 +135,6 @@
+ endif()
+ 
+ if(NOT APPLE)
+-  install(FILES /usr/share/qt5/resources/qtwebengine_devtools_resources.pak DESTINATION resources)
+   install(DIRECTORY ${CONAN_WEB-CLIENT-TV_ROOT}/tv DESTINATION ${INSTALL_RESOURCE_DIR}/web-client)
+   if(DEFINED CONAN_WEB-CLIENT-DESKTOP_ROOT)
+     install(DIRECTORY ${CONAN_WEB-CLIENT-DESKTOP_ROOT}/desktop DESTINATION ${INSTALL_RESOURCE_DIR}/web-client)
