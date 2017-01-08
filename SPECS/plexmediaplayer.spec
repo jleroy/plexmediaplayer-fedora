@@ -40,7 +40,7 @@ BuildRequires:  qt5-qtwebchannel-devel >= 5.7
 BuildRequires:  qt5-qtwebengine-devel >= 5.7
 BuildRequires:  qt5-qtx11extras-devel >= 5.7
 
-Requires:       (libmpv or mpv-libs)
+Requires:       mpv-libs
 Requires:       libdrm
 Requires:       mesa-libGL
 Requires:       SDL2
