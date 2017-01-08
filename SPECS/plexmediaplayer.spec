@@ -31,7 +31,7 @@ BuildRequires:  mpv-libs-devel
 BuildRequires:  libdrm-devel
 BuildRequires:  mesa-libGL-devel
 BuildRequires:  SDL2-devel
-BuildRequires:  libcec-devel
+BuildRequires:  libcec-devel >= 4.0.0
 BuildRequires:  libappstream-glib
 BuildRequires:  desktop-file-utils
 BuildRequires:  qt5-qtbase-devel >= 5.7
@@ -44,7 +44,7 @@ Requires:       (libmpv or mpv-libs)
 Requires:       libdrm
 Requires:       mesa-libGL
 Requires:       SDL2
-Requires:       libcec
+Requires:       libcec >= 4.0.0
 Requires:       minizip
 Requires:       opencv-core
 Requires:       qt5-qtbase >= 5.7
