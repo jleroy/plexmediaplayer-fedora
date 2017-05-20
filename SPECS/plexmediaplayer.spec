@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        1.2.2
+Version:        1.3.1
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 25+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v1.2.2.555-d1355001.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v1.3.1.649-44510e82.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 # https://raw.githubusercontent.com/plexinc/plex-media-player/master/resources/images/icon.png
 Source2:        %{name}.png
@@ -66,7 +66,7 @@ pip install --user conan
 conan remote add plex https://conan.plex.tv
 
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-1.2.2.555-d1355001 -q
+%setup -n plex-media-player-1.3.1.649-44510e82 -q
 %patch0 -p1
 %patch1 -p0
 
@@ -166,6 +166,34 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Sat May 20 2017 Jonathan Leroy <jonathan@harrycow.fr> - 1.3.1-1
+- Desktop web-client updated to 3.6.0
+- Reverted QT to 5.7
+
+* Sat May 20 2017 Jonathan Leroy <jonathan@harrycow.fr> - 1.3.0-1
+- Desktop web-client updated to 3.5.0
+- TV web-client updated to 3.3.0
+- Updated QT to 5.8
+- Updated Dependencies
+- Fix LIRC keyup detection
+
+* Sat May 20 2017 Jonathan Leroy <jonathan@harrycow.fr> - 1.2.5-1
+- TV interface not using full window size
+
+* Sat May 20 2017 Jonathan Leroy <jonathan@harrycow.fr> - 1.2.4-1
+- Updated dependencies
+- Fix HLS issue
+
+* Sat May 20 2017 Jonathan Leroy <jonathan@harrycow.fr> - 1.2.3-1
+- Desktop web-client updated to 3.0.1
+- TV web-client updated to 2.13.1
+- Add an experimental setting to force what screen PMP should be shown on in fullscreen
+- Add experimental refreshrate.avoid_25hz_30hz and audio_delay.50hz hidden settings
+- Media key support
+- Mark as watched/unwatched on recently played items
+- Fixed translations
+- Fixes to autorepeat handling (includes fixing accidental pausing when starting playback)
+
 * Sun Jan 08 2017 Jonathan Leroy <jonathan@harrycow.fr> - 1.2.2-1
 - Desktop web-client updated to 2.12.6
 - TV web-client updated to 2.10.8-fd540f9
