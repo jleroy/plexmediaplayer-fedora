@@ -18,8 +18,7 @@ Source7:        %{name}-standalone
 Source8:        %{name}.te
 Source9:        %{name}.pp
 Source10:       %{name}-standalone-enable
-Patch0:         %{name}-libcec4.patch
-Patch1:         %{name}-qtwebengine.patch
+Patch0:         %{name}-qtwebengine.patch
 
 BuildRequires:  cmake
 BuildRequires:  ninja-build
@@ -67,8 +66,7 @@ conan remote add plex https://conan.plex.tv
 
 #%setup -n %{name}-%{version} -q
 %setup -n plex-media-player-1.3.1.649-44510e82 -q
-%patch0 -p1
-%patch1 -p0
+%patch0 -p0
 
 %build
 rm -Rf build
