@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        1.3.1
+Version:        1.3.2
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 25+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v1.3.1.649-44510e82.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v1.3.2.657-21cb31b8.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 # https://raw.githubusercontent.com/plexinc/plex-media-player/master/resources/images/icon.png
 Source2:        %{name}.png
@@ -65,7 +65,7 @@ pip install --user conan
 conan remote add plex https://conan.plex.tv
 
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-1.3.1.649-44510e82 -q
+%setup -n plex-media-player-1.3.2.657-21cb31b8 -q
 %patch0 -p0
 
 %build
@@ -164,6 +164,10 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Sun May 28 2017 Jonathan Leroy <jonathan@harrycow.fr> - 1.3.2-1
+- Desktop web-client updated to 3.7.0
+- Fix casting to Plex Media Player
+
 * Sat May 20 2017 Jonathan Leroy <jonathan@harrycow.fr> - 1.3.1-1
 - Desktop web-client updated to 3.6.0
 - Reverted QT to 5.7
