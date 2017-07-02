@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        1.3.3
+Version:        1.3.4
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 25+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v1.3.3.666-8a1f4d71.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v1.3.4.670-1d4f6da1.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 # https://raw.githubusercontent.com/plexinc/plex-media-player/master/resources/images/icon.png
 Source2:        %{name}.png
@@ -65,7 +65,7 @@ pip install --user conan
 conan remote add plex https://conan.plex.tv
 
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-1.3.3.666-8a1f4d71 -q
+%setup -n plex-media-player-1.3.4.670-1d4f6da1 -q
 %patch0 -p0
 
 %build
@@ -164,6 +164,9 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Sun Jul 02 2017 Jonathan Leroy <jonathan@harrycow.fr> - 1.3.4-1
+- Desktop web-client updated to 3.9.1
+
 * Sat Jun 10 2017 Jonathan Leroy <jonathan@harrycow.fr> - 1.3.3-1
 - Fix plaxback with optical device type and AC3 enabled
 - Fix direct play with some DVR recordings (LATM)
