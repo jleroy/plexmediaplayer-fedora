@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        1.3.5
+Version:        2.1.1
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 25+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v1.3.5.689-a36fa532.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.1.1.703-79cdfa5c.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 # https://raw.githubusercontent.com/plexinc/plex-media-player/master/resources/images/icon.png
 Source2:        %{name}.png
@@ -65,7 +65,7 @@ pip install --user conan
 conan remote add plex https://conan.plex.tv
 
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-1.3.5.689-a36fa532 -q
+%setup -n plex-media-player-2.1.1.703-79cdfa5c -q
 %patch0 -p0
 
 %build
@@ -164,6 +164,20 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Sat Sep 30 2017 Jonathan Leroy <jonathan@harrycow.fr> - 2.1.1-1
+- Navigating back to library list and grid view restores the last focused position
+- Change screensaver behavior to reduce load on underlying system
+- The application should display without visual artifacts on high DPI screens
+- Videos should no longer render with a red shift
+- The update channel labels have been renamed to align with product lifecycle. The "Plex Pass" update channel will be labeled "Beta"
+- Fix the background sometimes not being restored after exiting the photo player
+- Correct trouble saving settings introduced in the first PMP preview release
+- The equalizer icon shown when music is playing is back to animating during playback
+- Return to the Home dashboard when using the Home icon or navigate home keyboard shortcut
+- Pressing the Play button on your remote control will automatically resume playback when asked to decide whether to resume or restart a video
+- Selecting Go To Artist from a track in the music player no longer navigates to the version 1 view
+- Desktop web-client updated to 3.20.6
+
 * Mon Aug 21 2017 Jonathan Leroy <jonathan@harrycow.fr> - 1.3.5-1
 - Desktop web-client updated to 3.14.1
 - Fix errors when opening the player (Desktop)
