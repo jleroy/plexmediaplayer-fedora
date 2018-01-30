@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.1.1
+Version:        2.3.0
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 25+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.1.1.703-79cdfa5c.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.3.0.774-ef2108c2.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 # https://raw.githubusercontent.com/plexinc/plex-media-player/master/resources/images/icon.png
 Source2:        %{name}.png
@@ -65,7 +65,7 @@ pip install --user conan
 conan remote add plex https://conan.plex.tv
 
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.1.1.703-79cdfa5c -q
+%setup -n plex-media-player-2.3.0.774-ef2108c2 -q
 %patch0 -p0
 
 %build
@@ -164,6 +164,37 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Tue Jan 30 2017 Jonathan Leroy <jonathan@harrycow.fr> - 2.3.0-1
+- Channels are now referred to as Plugins
+- Added default posters for artists/albums without artwork in search results
+- Added automatic fallback to transcode if direct stream video fails
+- Photos will display at a maximum resolution of 1920x1080
+- Fixed possible crash when exiting players
+- Fixed bitrate display issues. Music and smaller video bitrates should now display in kbps
+- Fixed the app crashing when photo strip in photo player is focused
+- Fixed photo player strip cells popping in and sometimes showing incorrect images
+- Fixed the playlist page displaying incorrect name and duration
+- Fixed the text case in the header music player and user menu button
+- Fixed the player controls menu ("•••") button not being disabled for watch later/recommended/channel videos
+- Fixed the "Unavailable" badge not being consistently displayed in preplay pages
+- Fixed videos in playlists not prompting to resume
+- Fixed photo slideshows from photo channels not playing all photos
+- Fixed player key handling when OSD is hidden
+- Fixed the user sometimes not being able to focus the photo strip when viewing photos from channels
+- Fixed theme music not stopping when browsing between search and preplay pages
+- Disabling logging to the Plex Media Server correctly prevents sending of log messages to the media server
+- Artist poster images are aligned at the top edge
+- Subtitles toggle alert shows stream metadata
+- Lyrics are only available for the current playing track in the play queue
+- Player controls do not jump around when the durations change
+- Fixed companion video control in mixed photo/video libraries
+- Fixed some details in music playback such as the metadata using the album artist rather than the track artist and OSD appearing during track changes
+- Fixed the post play disappearing after screensaver is dismissed
+- Fixed titles sometimes unnecessarily scrolling
+- Restore focus correctly in season details episodes list after playback
+- Fixed audio / video not playing when bandwidth restrictions and attempting to direct play
+- Fixed the first enter press when the player controls are hidden showing the controls and executing the active button action immediately
+
 * Sat Sep 30 2017 Jonathan Leroy <jonathan@harrycow.fr> - 2.1.1-1
 - Navigating back to library list and grid view restores the last focused position
 - Change screensaver behavior to reduce load on underlying system
