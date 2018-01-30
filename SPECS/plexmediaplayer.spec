@@ -164,7 +164,7 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
-* Tue Jan 30 2017 Jonathan Leroy <jonathan@harrycow.fr> - 2.3.0-1
+* Tue Jan 30 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.3.0-1
 - Channels are now referred to as Plugins
 - Added default posters for artists/albums without artwork in search results
 - Added automatic fallback to transcode if direct stream video fails
