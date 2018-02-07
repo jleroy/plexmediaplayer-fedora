@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.3.0
+Version:        2.4.0
 Release:        1%{?dist}
-Summary:        Plex Media Player for Fedora 25+
+Summary:        Plex Media Player for Fedora 26+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.3.0.774-ef2108c2.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.4.0.786-970a87bf.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 # https://raw.githubusercontent.com/plexinc/plex-media-player/master/resources/images/icon.png
 Source2:        %{name}.png
@@ -65,7 +65,7 @@ pip install --user conan
 conan remote add plex https://conan.plex.tv
 
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.3.0.774-ef2108c2 -q
+%setup -n plex-media-player-2.4.0.786-970a87bf -q
 %patch0 -p0
 
 %build
@@ -164,6 +164,23 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Wed Feb 07 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.4.0-1
+- Updated the sources selector UI
+- Added sources modal
+- Added ability to reorder sources from sources modal
+- Added ability to hide sources from sources list
+- Added support for inline collections
+- Added automatic fallback to transcode if direct stream audio fails
+- Playing an item from the play queue will automatically close the play queue
+- Fixed the app sometimes showing incomplete lists when returning from the player
+- Fixed the error message displayed for unavailable videos
+- Fixed play/pause keys in player while the player controls are hidden
+- Fixed the first enter press when the player controls are hidden showing the controls and executing the active button action immediately
+- Fixed empty play queue when playing watch later/recommended videos
+- Fixed a rare bug where the app could become unresponsive when selecting a user
+- Fixed the PIN entry in user switching screen still being displayed after user presses back to close it
+- Fixed the exit confirmation dialog not being visible when user attempts to exit from user switching screen
+
 * Tue Jan 30 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.3.0-1
 - Channels are now referred to as Plugins
 - Added default posters for artists/albums without artwork in search results
