@@ -23,7 +23,6 @@ BuildRequires:  cmake
 BuildRequires:  ninja-build
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
-BuildRequires:  python-pip
 BuildRequires:  mpv-libs
 BuildRequires:  mpv-libs-devel
 BuildRequires:  libdrm-devel
