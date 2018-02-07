@@ -59,10 +59,6 @@ Requires(pre):  shadow-utils
 Plex Media Player - Client for Plex Media Server.
 
 %prep
-# Dirty hack to make conan work in Copr.
-pip install --user conan
-conan remote add plex https://conan.plex.tv
-
 #%setup -n %{name}-%{version} -q
 %setup -n plex-media-player-2.4.0.786-970a87bf -q
 
@@ -70,7 +66,6 @@ conan remote add plex https://conan.plex.tv
 rm -Rf build
 mkdir build
 cd build
-conan install ..
 cmake -GNinja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DQTROOT=/usr/lib64/qt5 -DMPV_INCLUDE_DIR=/usr/include/mpv -DMPV_LIBRARY=/usr/lib64/libmpv.so.1 -DLINUX_DBUS=ON -DCMAKE_INSTALL_PREFIX=/usr ..
 ninja-build
 
