@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.4.0
+Version:        2.10.0
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 26+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.4.0.786-970a87bf.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.10.0.849-e02dbeca.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 # https://raw.githubusercontent.com/plexinc/plex-media-player/master/resources/images/icon.png
 Source2:        %{name}.png
@@ -59,7 +59,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.4.0.786-970a87bf -q
+%setup -n plex-media-player-2.10.0.849-e02dbeca -q
 
 %build
 rm -Rf build
@@ -156,6 +156,70 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Sun May 27 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.10.0-1
+- Updated translations
+- Desktop web-client updated to 3.47.1
+- Added subtitle support for videos in the photo player
+- Remember last active library when switching between dashboard types
+- Added Plex News
+- Added scrolling to dashboard header type buttons when more than 5 buttons are visible
+- Swapped the Record and Play buttons on Live TV item screens
+- Added new flat Rotten Tomatoes icons
+- Added link to view all hub list items
+- Added automatic fallback to transcode if direct playing music fails
+- Added Privacy Policy and Terms of Service viewing in settings
+- Added quick links action buttons for type discovery pages
+- Fixed the titles for recently added TV shows
+- Fixed the player sometimes not being able to play watch later/recommended videos
+- Fixed bug that could cause app to fail to load
+- Fixed cases where playback would error or fallback to a transcode near the end of a video
+- Fixed the type dropdown showing collections for Live TV
+- Fixed missing separator line for Online Content in libraries
+- Fixed an issue with the player controls sometimes unexpectedly disappearing after changing playing item
+- Fixed video restarting from offset when changing the audio or subtitle streams
+- Fixed movie filters dropdown getting cut off on certain screen sizes
+- Fixed an issue where it wasn't possible to close the player until the content finished loading
+- Fixed the player remaining paused after changing an item in the play queue
+- Fixed title getting cut off on Live TV preplay pages
+- Fixed the player controls briefly appearing when closing the player
+- Fixed seeking in Live TV playback in desktop mode
+- Fixed a rare bug that could cause the app to become unresponsive to key input after signing in
+- Fixed some issues with item actions for some older servers
+- Fixed an issue that prevented using keyboard shortcuts to mark an item as unwatched
+- Fixed possible endless buffering at start of playback
+- Fixed short movie/episode summary alignment
+- Fixed version count not showing up on poster lists
+- Fixed the recording schedule not displaying an empty message when no events are displayed
+- Fixed the next airing wrapping to two lines on the recording priority page
+- Selecting "Sign Out" after selecting "Switch User" from the app's home screen no longer shows homescreen content below the confirmation modal
+- Avoid showing icon or text placeholders in poster lists until item metadata has loaded
+- Show track artist, if available, instead of album artist for play queue tracks
+- Fixed Companion connectivity issues in certain situations
+- Fixed soft subtitles positioning while player controls are visible
+- Fixed posters for other episodes not showing on Live TV episode details
+- Fixed an issue that would cause the Home page to be displayed for media types without libraries
+- Fixed issues around playing music with Plex Companion
+- Fixed an issue that could cause the delete version action to delete all versions
+- Fixed an issue that made some News clips dates innacurate until the poster was focused
+- Fixed casting camera roll from iOS
+- Clarified error codes in modal when playback fails
+- Fixed an issue that prevented toggling between timed and untimed lyrics
+- Fixed library lists sometimes not scrolling to the end correctly
+- Fixed the dashboard type list sometimes not scrolling to the end correctly
+- Don't show the library list if there are no libraries available
+- Fixed a rare bug that could cause pointer-only UI elements to appear while not controlling the app with a pointer
+- Fixed an issue with news tags sometimes appearing offscreen
+- Fixed an issue where going to an empty recording schedule page would make the application unresponsive to input
+- Fixed UI sounds
+- Fixed the app not loading if plex.tv was unavailable
+- Fixed the version badge not updating after deleting a version
+- Fixed missing videos in a photo library failing silently
+- Fixed the OSD not hiding when resuming playback after the screensaver was shown
+- Fixed high CPU usage during music playback
+- Fixed deleting of file with multiple versions
+- Fix missing video titles on photo album pages
+- Fix the rest of the episodes in the play queue after selecting play from the show level
+
 * Wed Feb 07 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.4.0-1
 - Updated the sources selector UI
 - Added sources modal
