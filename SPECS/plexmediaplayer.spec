@@ -83,6 +83,9 @@ cd ../
 %{__mkdir_p} %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_datadir}/icons/hicolor/256x256/apps
 %{__install} -m0644 %{_sourcedir}/%{name}.png                             %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_datadir}/icons/hicolor/256x256/apps/%{name}.png
 
+%{__mkdir_p} %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_datadir}/icons/hicolor/scalable/apps
+%{__install} -m0644 %{_sourcedir}/%{name}.svg                             %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
+
 appstream-util validate-relax --nonet %{_sourcedir}/%{name}.appdata.xml
 %{__mkdir_p} %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_datadir}/appdata
 %{__install} -m0644 %{_sourcedir}/%{name}.appdata.xml                     %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_datadir}/appdata/%{name}.appdata.xml
