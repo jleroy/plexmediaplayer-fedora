@@ -8,16 +8,14 @@ URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
 Source0:        https://github.com/plexinc/plex-media-player/archive/v2.10.0.849-e02dbeca.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
-# https://raw.githubusercontent.com/plexinc/plex-media-player/master/resources/images/icon.png
-Source2:        %{name}.png
-Source3:        %{name}.appdata.xml
-Source4:        %{name}.service
-Source5:        %{name}.target
-Source6:        %{name}.pkla.disabled
-Source7:        %{name}-standalone
-Source8:        %{name}.te
-Source9:        %{name}.pp
-Source10:       %{name}-standalone-enable
+Source2:        %{name}.appdata.xml
+Source3:        %{name}.service
+Source4:        %{name}.target
+Source5:        %{name}.pkla.disabled
+Source6:        %{name}-standalone
+Source7:        %{name}.te
+Source8:        %{name}.pp
+Source9:       %{name}-standalone-enable
 
 BuildRequires:  cmake
 BuildRequires:  ninja-build
@@ -80,9 +78,6 @@ cd ../
 %{__install} -m0755 %{_builddir}/%{buildsubdir}/build/src/pmphelper       %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_bindir}/pmphelper
 %{__install} -m0755 %{_sourcedir}/%{name}-standalone                      %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_bindir}/%{name}-standalone
 
-%{__mkdir_p} %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_datadir}/icons/hicolor/256x256/apps
-%{__install} -m0644 %{_sourcedir}/%{name}.png                             %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_datadir}/icons/hicolor/256x256/apps/%{name}.png
-
 appstream-util validate-relax --nonet %{_sourcedir}/%{name}.appdata.xml
 %{__mkdir_p} %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_datadir}/appdata
 %{__install} -m0644 %{_sourcedir}/%{name}.appdata.xml                     %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}%{_datadir}/appdata/%{name}.appdata.xml
@@ -113,7 +108,7 @@ desktop-file-install --dir=%{_buildrootdir}/%{name}-%{version}-%{release}.%{_arc
 /usr/lib/systemd/system/plexmediaplayer.target
 /usr/share/appdata/plexmediaplayer.appdata.xml
 /usr/share/applications/plexmediaplayer.desktop
-/usr/share/icons/hicolor/256x256/apps/plexmediaplayer.png
+/usr/share/icons/hicolor/scalable/apps/plexmediaplayer.svg
 /usr/share/plexmediaplayer/plexmediaplayer-standalone-enable
 /usr/share/plexmediaplayer/selinux/plexmediaplayer.te
 /usr/share/plexmediaplayer/selinux/plexmediaplayer.pp
