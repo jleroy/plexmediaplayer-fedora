@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.10.0
+Version:        2.11.0
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 26+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.10.0.849-e02dbeca.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.11.0.867-f27f8d2a.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.10.0.849-e02dbeca -q
+%setup -n plex-media-player-2.11.0.867-f27f8d2a -q
 
 %build
 rm -Rf build
@@ -151,6 +151,22 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Wed May 30 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.11.0-1
+- Desktop web-client updated to 3.52.2
+- Qt updated to 5.9.5
+- Updated "(Un)Watched" text to "(Un)Played"
+- Restored ability to delete Watch Later/Recommended items
+- Fixed several possible situations where focus could disappear
+- Fixed an issue where shuffling a TV season would result in a play queue containing episodes from outside of that season
+- Fixed an issue where the order in which items on a show page are focused could sometimes be inconsistent
+- Ensured quality setting is respected when autoplaying next video
+- Fixed HLS videos in Watch Later not playing in some cases
+- Fixed some occurrences of "Repeat All" not repeating single video play queues
+- Fixed Live TV type buttons cutoff in list view
+- Fixed inconsistent queue behavior when playing season with no unwatched episodes
+- Fixed music play queues not correctly restoring on app start
+- Fixed an issue that prevented playing content from a Controller while the app is in the PIN entry screen
+
 * Sun May 27 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.10.0-1
 - Updated translations
 - Desktop web-client updated to 3.47.1
