@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.11.0
+Version:        2.11.1
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 26+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.11.0.867-f27f8d2a.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.11.1.870-4af5a622.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.11.0.867-f27f8d2a -q
+%setup -n plex-media-player-2.11.1.870-4af5a622 -q
 
 %build
 rm -Rf build
@@ -151,6 +151,10 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Sun Jun 10 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.11.1-1
+- TV web-client updated to 3.54.2
+- Removed non-functional Channel provider
+
 * Wed May 30 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.11.0-1
 - Desktop web-client updated to 3.52.2
 - Qt updated to 5.9.5
