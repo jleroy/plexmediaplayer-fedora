@@ -151,7 +151,7 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
-* Sat Jul 23 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.12.1-1
+* Sat Jun 23 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.12.1-1
 - Desktop web-client updated to 3.55.3
 - Restored ability to delete Watch Later/Recommended items
 - Fixed Browse by Folder showing unwatched flags on folders
