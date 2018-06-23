@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.11.1
+Version:        2.12.1
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 26+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.11.1.870-4af5a622.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.12.1.871-6c71195e.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.11.1.870-4af5a622 -q
+%setup -n plex-media-player-2.12.1.871-6c71195e -q
 
 %build
 rm -Rf build
@@ -151,6 +151,16 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Sat Jul 23 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.12.1-1
+- Desktop web-client updated to 3.55.3
+- Restored ability to delete Watch Later/Recommended items
+- Fixed Browse by Folder showing unwatched flags on folders
+- Fixed cursor getting lost when navigating up to menu on Live TV Watch Now
+- Fixed metadata being displayed behind episode thumbnail in some cases
+- Fixed smooth scroll behaviour on some dashboard pages
+- Fixed audio & subtitle preference changes not being reflected immediately on the preplay page
+- Removed "Discover" and "Watch Now" buttons from Live TV Browse All
+
 * Sun Jun 10 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.11.1-1
 - TV web-client updated to 3.54.2
 - Removed non-functional Channel provider
