@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.12.1
+Version:        2.13.0
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 26+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.12.1.871-6c71195e.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.13.0.877-6e1ea2cb.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.12.1.871-6c71195e -q
+%setup -n plex-media-player-2.13.0.877-6e1ea2cb -q
 
 %build
 rm -Rf build
@@ -151,6 +151,13 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Sun Jul 01 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.13.0-1
+- Desktop web-client updated to 3.57.1
+- Fixed focus disappearing after selecting a different news clip from the play queue
+- Fixed missing jump bars when viewing Artists and Albums from Quick Links
+- Don't show "Browse by Folder" option when not applicable
+- Fixed missing shuffle button from Collections PrePlay
+
 * Sat Jun 23 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.12.1-1
 - Desktop web-client updated to 3.55.3
 - Restored ability to delete Watch Later/Recommended items
