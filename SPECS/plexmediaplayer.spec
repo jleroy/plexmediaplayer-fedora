@@ -1,7 +1,7 @@
 Name:           plexmediaplayer
 Version:        2.18.0
 Release:        1%{?dist}
-Summary:        Plex Media Player for Fedora 26+
+Summary:        Plex Media Player for Fedora 27+
 
 License:        GPLv2
 URL:            https://plex.tv/
