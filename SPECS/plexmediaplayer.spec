@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.13.0
+Version:        2.18.0
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 26+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.13.0.877-6e1ea2cb.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.18.0.893-48795f25.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.13.0.877-6e1ea2cb -q
+%setup -n plex-media-player-2.18.0.893-48795f25 -q
 
 %build
 rm -Rf build
@@ -151,6 +151,49 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Sat Sep 15 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.18.0-1
+- Desktop web-client updated to 3.67.1
+- Added soft subtitles with direct play (requires PMS 1.13.4 or above)
+- Add Chapter Selection to video playback
+- Updated app settings to match new UI
+- Added menu in settings to reorder and show/hide media types
+- Added AdChoices link to Privacy settings
+- Added unwatched triangles to Watch Later/Recommended
+- Automatically sort media types on first run
+- Automatically refresh the dashboard when playback ends
+- Improved Audio Passthrough settings labels
+- Removed errant app settings section
+- Fixed error showing when recording is post processing
+- Fixed troubles selecting embedded subtitle streams in videos without audio streams
+- Fixed grid view programs getting duplicated when refreshing EPG with grid view open
+- Fixed video quality setting does not properly show user selection
+- Fixed sometimes only the background showing when going back to the pre-play page
+- Fixed items in On Right Now starting playback immediately after going to Watch Now
+- Fixed icon for server and source lists
+- Fixed an issue where pressing left or right while video is paused causes you to go to previous/next video instead of seeking
+- Fixed subtitles being burned unnecessarily when transcoding
+- Fixed skipping instead of seeking with remote
+- Fixed cut off text on preplay pages with long synopses
+- Fixed photo thumbnails not showing a background when scrolling
+- Fixed an issue that could cause selected settings sections to reset when changing selected options
+- Fixed formatting of no recordings page on some devices
+- Fixed long translations getting cut off in the user menu
+- Fixed source list order changes not saving in some rare circumstances
+- Fixed an issue that could cause the UI to become unresponsive when browsing News settings
+- Fixed album preplay sometimes wrapping titles off screen
+- Fixed video direct play setting incorrectly affecting music playback
+- Fixed Cloud Sync server library names not showing up in source modal
+- Fixed lost focus when opening User Menu while offline
+- Fixed inconsistency with Mark as Played string naming
+- Fixed an issue that could cause dashboard pages to fail to load while the app is offline
+- Fixed update check in settings
+- Fixed pressing play on post play next item leaving OSD open
+- Fixed indirect connection being chosen prematurely in some cases
+- Fixed inability to change audio stream when being controlled as companion player
+- Fixed being unable to remove manual server settings
+- Fixed alignment of checkboxes for Live TV advanced recording settings
+- Fixed timed lyrics not scrolling as track progresses
+
 * Sun Jul 01 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.13.0-1
 - Desktop web-client updated to 3.57.1
 - Fixed focus disappearing after selecting a different news clip from the play queue
