@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.18.0
+Version:        2.19.1
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 27+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.18.0.893-48795f25.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.19.1.904-f679df4f.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.18.0.893-48795f25 -q
+%setup -n plex-media-player-2.19.1.904-f679df4f -q
 
 %build
 rm -Rf build
@@ -151,6 +151,23 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Thu Sep 10 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.19.1-1
+- Added chapter titles to the chapter selection
+- Added the ability to focus the progress bar and move the playhead to seek more accurately
+- Added preview thumbnails while seeking (when available)
+- Adjusted rewind and fast-foward behavior to move the playhead automatically at 1x, 2x or 3x speed
+- Added new music mini player
+- Added new user button design in the application header
+- Added split fullscreen and layout switching controls
+- Fixed shuffle commands received from companion apps not being recognized
+- Fixed dashboard hubs sometimes failing to load when switching between Home users
+- Fixed advancing to the same item as the one currently playing putting the player in a broken state
+- Fixed focus not being restored when returning to playlists list page
+- Fixed missing placeholder for chapter selection preview thumbnails
+- Fixed broken focus behaviour when pressing right twice quickly on settings
+- Fixed missing ‘Collections’ and ‘Albums’ links from dashboards
+- Fixed an issue connecting to Plex Cloud servers
+
 * Sat Sep 15 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.18.0-1
 - Desktop web-client updated to 3.67.1
 - Added soft subtitles with direct play (requires PMS 1.13.4 or above)

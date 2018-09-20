@@ -1,5 +1,5 @@
 srpm:
 	dnf install rpmdevtools
 	spectool --get-files --directory "`pwd`/SOURCES/" SPECS/plexmediaplayer.spec
-	echo "43254efaaef0fca36236c7962548081c97dccc47080cbae51ef00deb688aa488ceb280bbd9a73cf0ebb97dad8201fb372de4a680a67222f239d5a0957c22f7a3  SOURCES/plexmediaplayer-2.18.0.tar.gz" | sha512sum -c
+	echo "d1d9079a3decd86c0485bb4e6cc7f7034cb33e825e693c0d8ed199bcee3d10f5f1f33f539cb167f8fa9b3692f8087f11a55b14546ebb5e06b6112038690de53a  SOURCES/plexmediaplayer-2.19.1.tar.gz" | sha512sum -c
 	rpmbuild --define "_topdir `pwd`" --define "_srcrpmdir $(outdir)" -bs SPECS/plexmediaplayer.spec
