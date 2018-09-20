@@ -151,7 +151,7 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
-* Thu Sep 10 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.19.1-1
+* Thu Sep 20 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.19.1-1
 - Added chapter titles to the chapter selection
 - Added the ability to focus the progress bar and move the playhead to seek more accurately
 - Added preview thumbnails while seeking (when available)
