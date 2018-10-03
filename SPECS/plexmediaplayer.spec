@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.19.1
+Version:        2.20.0
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 27+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.19.1.904-f679df4f.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.20.0.909-46413dd1.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.19.1.904-f679df4f -q
+%setup -n plex-media-player-2.20.0.909-46413dd1 -q
 
 %build
 rm -Rf build
@@ -151,6 +151,32 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Wed Oct 03 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.20.0-1
+- Desktop web-client updated to 3.71.1
+- Improved stream titles (requires PMS 1.13.8 or higher)
+- Block app key shortcuts when entering subtitles search title
+- Sped up initial loading dashboard
+- Fixed blinking thumbnails when moving between items in photo player
+- Fixed missing empty dashboard message for managed/shared users with
+  restrictions
+- Fixed background being lost when navigating away from news player
+- Fixed some edge cases around deleting media that could cause the app to become
+  unresponsive
+- Fixed Chapter Selection focus box not showing sometimes
+- Fixed occasional unexpected focused element in app settings modal after
+  closing via pointer click
+- Fixed some navigation bugs in home screen media types settings
+- Fixed settings changes not being immediately visible in the UI
+- Fixed pressing seek buttons during music playback making it impossible to
+  bring up player controls afterwards
+- Fixed subtitles search modal title button width changing when focused
+- Fixed news ads playback putting the app in a broken state
+- Fixed progress bar being focusable during ads playback
+- Fixed news tags and news feed being visible during ads playback
+- Fixed news feed being slightly cut off at the bottom
+- Fixed issue preventing companion commands
+- Fixed display issues with long stream titles on preplay pages
+
 * Thu Sep 20 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.19.1-1
 - Added chapter titles to the chapter selection
 - Added the ability to focus the progress bar and move the playhead to seek more accurately
