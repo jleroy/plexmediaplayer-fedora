@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.20.0
+Version:        2.21.0
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 27+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.20.0.909-46413dd1.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.21.0.914-4839cbf2.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.20.0.909-46413dd1 -q
+%setup -n plex-media-player-2.21.0.914-4839cbf2 -q
 
 %build
 rm -Rf build
@@ -151,6 +151,18 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Tue Oct 30 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.21.0-1
+- Improvements to subtitles search results titles
+- Added new music player UI for podcasts
+- Added Related Episodes hub underneath the Podcasts player
+- Watch Later and Recommended support has been removed. Please see: 
+  plex.tv/blog/subtitles-and-sunsets-big-improvements-little-housekeeping
+- Fixed occasional loss of focus on library page when applying “unplayed” filter
+- Fixed settings failing to open in some circumstances
+- Fixed zip code not disappearing in News settings after selecting a country
+  that doesn’t have zip codes
+- Fixed selecting a play queue item occasionally not starting playback
+
 * Wed Oct 03 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.20.0-1
 - Desktop web-client updated to 3.71.1
 - Improved stream titles (requires PMS 1.13.8 or higher)
