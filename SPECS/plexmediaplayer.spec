@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.22.1
+Version:        2.23.0
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 27+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.22.1.917-2a5a2e01.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.23.0.920-5bc1a2e5.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.22.1.917-2a5a2e01 -q
+%setup -n plex-media-player-2.23.0.920-5bc1a2e5 -q
 
 %build
 rm -Rf build
@@ -151,6 +151,13 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Mon Dec 03 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.23.0-1
+- Desktop web-client updated to 3.77.2
+- Updated look of playlist/collection posters
+- Managed users can no longer change the Automatically Sign In setting
+- Improved image upscale quality for episode posters
+- Fixed sorting/filtering being reset when deleting item
+
 * Mon Nov 26 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.22.1-1
 - Added recording progress to recording schedule
 - Subtitles search modal UI changes
