@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.23.0
+Version:        2.24.0
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 27+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.23.0.920-5bc1a2e5.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.24.0.924-63fcaa8e.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.23.0.920-5bc1a2e5 -q
+%setup -n plex-media-player-2.24.0.924-63fcaa8e -q
 
 %build
 rm -Rf build
@@ -151,6 +151,17 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Tue Dec 18 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.24.0-1
+- Fixed an issue where signing out or switching users could cause the app to
+  freeze
+- Fixed an issue where the app could crash when loading a type view
+- Fixed an issue where focus would be lost after removing the last item from a
+  list
+- Fixed as issue where enabling recording all episodes for certain shows could
+  return in nothing getting added to the priority list
+- Fixed an issue that could cause a blank screen to appear after playback
+- Fixed loss of focus on episode preplay in some cases
+
 * Mon Dec 03 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.23.0-1
 - Desktop web-client updated to 3.77.2
 - Updated look of playlist/collection posters
