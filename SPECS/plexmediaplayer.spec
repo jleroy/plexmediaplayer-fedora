@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.24.0
+Version:        2.25.0
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 27+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.24.0.924-63fcaa8e.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.25.0.940-485e2ea4.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.24.0.924-63fcaa8e -q
+%setup -n plex-media-player-2.25.0.940-485e2ea4 -q
 
 %build
 rm -Rf build
@@ -151,6 +151,16 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Fri Jan 11 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.25.0-1
+- Desktop web-client updated to 3.77.4
+- Added extended artist biography on artist preplay
+- Fixed podcast/web show episodes being marked as played as soon as playback
+  is initiated
+- Fixed app settings sometimes wrongly showing an item as selected
+- Fixed media provider hubs occasionaly not loading
+- Fixed an issue where the application could show a blank screen when all
+  servers are unavailable
+
 * Tue Dec 18 2018 Jonathan Leroy <jonathan@harrycow.fr> - 2.24.0-1
 - Fixed an issue where signing out or switching users could cause the app to
   freeze
