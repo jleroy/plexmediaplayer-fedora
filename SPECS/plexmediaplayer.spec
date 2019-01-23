@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.25.0
+Version:        2.26.0
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 27+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.25.0.940-485e2ea4.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.26.0.947-1e21fa2b.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.25.0.940-485e2ea4 -q
+%setup -n plex-media-player-2.26.0.947-1e21fa2b -q
 
 %build
 rm -Rf build
@@ -151,6 +151,16 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Wed Jan 23 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.26.0-1
+- Added actions menu to Web Shows and Podcasts show preplay pages
+- Added Chapter Selection title to chapter selection menu
+- Don't show "More..." button when there is only one more item
+- Fixed possible error on user switcher screen
+- Fixed chapter selection sometimes losing focus at the end of the list
+- Fixed Live TV restarting from another position when enabling or
+  disabling Closed Captioning
+- Fixed some issues with video transcoding when it can direct stream
+
 * Fri Jan 11 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.25.0-1
 - Desktop web-client updated to 3.77.4
 - Added extended artist biography on artist preplay
