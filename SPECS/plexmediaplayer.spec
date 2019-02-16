@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.26.0
+Version:        2.27.0
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 27+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.26.0.947-1e21fa2b.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.27.0.949-542ba3ed.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.26.0.947-1e21fa2b -q
+%setup -n plex-media-player-2.27.0.949-542ba3ed -q
 
 %build
 rm -Rf build
@@ -151,6 +151,16 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Sat Feb 16 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.27.0-1
+- Desktop web-client updated to 3.83.1
+- Support translation of relative time strings
+- Adjusted library page jump bar so more characters can be shown
+- Changed user menu from dropdown to full screen modal
+- Fixed playback controls not showing the correct duration when
+  lightweight seeking
+- Fixed possible endless spinner when downloading subtitles
+- Fixed player controls sometimes not closing when playing from companion app
+
 * Wed Jan 23 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.26.0-1
 - Added actions menu to Web Shows and Podcasts show preplay pages
 - Added Chapter Selection title to chapter selection menu
