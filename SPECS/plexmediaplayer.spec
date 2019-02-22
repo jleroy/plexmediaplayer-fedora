@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.27.0
+Version:        2.28.0
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 28+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.27.0.949-542ba3ed.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.28.0.952-5408ca22.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.27.0.949-542ba3ed -q
+%setup -n plex-media-player-2.28.0.952-5408ca22 -q
 
 %build
 rm -Rf build
@@ -151,6 +151,16 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Fri Feb 22 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.28.0-1
+- We've updated our tooling to provide an improved user experience
+- AAC audio streams are no longer automatically converted to AC3, EAC3, or DTS
+  during Direct Stream or Transcode when the related Settings > Audio setting is
+  enabled. Instead they will play without conversion
+- Fixed loss of focus when going to an empty web shows page
+- Fixed navigation order after switching to the admin user
+- Fixed News and Podcasts directories so they don't touch navigation bar
+- Fixed extended info poster not positioned properly
+
 * Sat Feb 16 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.27.0-1
 - Desktop web-client updated to 3.83.1
 - Support translation of relative time strings
