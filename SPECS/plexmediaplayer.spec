@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.28.0
+Version:        2.29.0
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 28+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.28.0.952-5408ca22.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.29.0.956-c81d7bae.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.28.0.952-5408ca22 -q
+%setup -n plex-media-player-2.29.0.956-c81d7bae -q
 
 %build
 rm -Rf build
@@ -151,6 +151,19 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Wed Mar 06 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.29.0-1
+- Renamed 'More...' subtitles option to 'Search...'
+- Fixed image not loading in actions modal during playback
+- Fixed an issue where the wrong images could be displayed for items played
+  from other shared or own servers
+- Fixed an issue where focus could be lost after reordering types or changing
+  types visibility
+- Fixed loss of focus on My Webshows/Podcasts when one or more is removed
+- Fixed companion pre-play being lost after companion playback
+- Fixed an issue where focus could be lost on back navigation
+- Fixed regression that caused videos with AC3 audio tracks to direct play and
+  result in no sound
+
 * Fri Feb 22 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.28.0-1
 - We've updated our tooling to provide an improved user experience
 - AAC audio streams are no longer automatically converted to AC3, EAC3, or DTS
