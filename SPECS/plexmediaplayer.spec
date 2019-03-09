@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.29.0
+Version:        2.29.1
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 28+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.29.0.956-c81d7bae.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.29.1.961-bb236059.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.29.0.956-c81d7bae -q
+%setup -n plex-media-player-2.29.1.961-bb236059 -q
 
 %build
 rm -Rf build
@@ -151,6 +151,11 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Sat Mar 09 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.29.1-1
+- Fixed an issue where search results would come from local machine’s server
+  instead of specified server
+- Fixed an issue where selecting a search result would open a blank page
+
 * Wed Mar 06 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.29.0-1
 - Renamed 'More...' subtitles option to 'Search...'
 - Fixed image not loading in actions modal during playback
