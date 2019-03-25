@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.29.1
+Version:        2.30.0
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 28+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.29.1.961-bb236059.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.30.0.965-87662862.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.29.1.961-bb236059 -q
+%setup -n plex-media-player-2.30.0.965-87662862 -q
 
 %build
 rm -Rf build
@@ -151,6 +151,17 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Mon Mar 25 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.30.0-1
+- Desktop web-client updated to 3.83.2
+- Fixed playing media when controlled by remote player
+- Fixed positioning of poster/text in Live TV conflict items
+- Fixed regression with search shortcut
+- Fixed issue changing audio or subtitles during playback of multi-part files
+- Fixed focus order issue on photo tag page
+- Fixed missing Playlists link for Other Videos
+- Fixed an issue that prevented playing tracks on playlists with items of
+  different sources
+
 * Sat Mar 09 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.29.1-1
 - Fixed an issue where search results would come from local machine’s server
   instead of specified server
