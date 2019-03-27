@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.30.0
+Version:        2.30.1
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 28+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.30.0.965-87662862.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.30.1.966-e4e7b964.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.30.0.965-87662862 -q
+%setup -n plex-media-player-2.30.1.966-e4e7b964 -q
 
 %build
 rm -Rf build
@@ -151,6 +151,9 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Wed Mar 27 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.30.1-1
+- Fixed dashboard not loading when one or more Online Media Sources is disabled
+
 * Mon Mar 25 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.30.0-1
 - Desktop web-client updated to 3.83.2
 - Fixed playing media when controlled by remote player
