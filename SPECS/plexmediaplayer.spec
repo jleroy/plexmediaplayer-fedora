@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.31.0
+Version:        2.32.0
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 28+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.31.0.967-a95b6d76.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.32.0.973-62b2e27f.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.31.0.967-a95b6d76 -q
+%setup -n plex-media-player-2.32.0.973-62b2e27f -q
 
 %build
 rm -Rf build
@@ -151,6 +151,9 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Tue Apr 18 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.32.0-1
+- Fixed user icon in settings modal displaying square instead of round initially
+
 * Tue Apr 02 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.31.0-1
 - Added subtitles offset controls for external subtitle files
 - Fixed podcasts related episodes getting cut off
