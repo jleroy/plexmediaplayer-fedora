@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.32.0
+Version:        2.33.1
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 28+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.32.0.973-62b2e27f.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.33.1.979-c4087ea7.tar.gzz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.32.0.973-62b2e27f -q
+%setup -n plex-media-player-2.33.1.979-c4087ea7 -q
 
 %build
 rm -Rf build
@@ -151,6 +151,14 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Thu May 02 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.33.1-1
+- Fixed blurry letter avatar in user menu
+- Fixed text getting cut off in related hubs
+- Fixed user avatar not appearing in playlists with shared content
+- Fixed quick links hubs not correctly positioned with line borders
+- Fixed On Right Now hub for Live TV not showing "More..." button
+- Fixed loss of focus when only server goes offline
+
 * Tue Apr 18 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.32.0-1
 - Fixed user icon in settings modal displaying square instead of round initially
 
