@@ -6,7 +6,7 @@ Summary:        Plex Media Player for Fedora 28+
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.33.1.979-c4087ea7.tar.gzz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.33.1.979-c4087ea7.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
