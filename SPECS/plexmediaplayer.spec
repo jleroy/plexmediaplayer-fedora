@@ -1,12 +1,12 @@
 Name:           plexmediaplayer
-Version:        2.33.1
+Version:        2.34.0
 Release:        1%{?dist}
 Summary:        Plex Media Player for Fedora 28+
 
 License:        GPLv2
 URL:            https://plex.tv/
 # See: https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Tags
-Source0:        https://github.com/plexinc/plex-media-player/archive/v2.33.1.979-c4087ea7.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/plexinc/plex-media-player/archive/v2.34.0.983-edb7fbf7.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Source2:        %{name}.appdata.xml
 Source3:        %{name}.service
@@ -57,7 +57,7 @@ Plex Media Player - Client for Plex Media Server.
 
 %prep
 #%setup -n %{name}-%{version} -q
-%setup -n plex-media-player-2.33.1.979-c4087ea7 -q
+%setup -n plex-media-player-2.34.0.983-edb7fbf7 -q
 
 %build
 rm -Rf build
@@ -151,6 +151,17 @@ update-desktop-database &> /dev/null || :
 
 
 %changelog
+* Thu May 23 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.34.0-1
+- Added a new base background image
+- Preview Plex's new PMP experience with many major enhancements including:
+  customizable / always accessible sidebar navigation, ability to pin and
+  reorder your favorite libraries to the sidebar, quick access to all of your
+  media through the "More" menu item, redesigned tab views that remember your
+  previous view within each library, acustomizable home screen including pinning
+  content rows from any library to home
+- Fixed missing news hubs
+- Fixed titles missing for music videos in playlist
+
 * Thu May 02 2019 Jonathan Leroy <jonathan@harrycow.fr> - 2.33.1-1
 - Fixed blurry letter avatar in user menu
 - Fixed text getting cut off in related hubs
